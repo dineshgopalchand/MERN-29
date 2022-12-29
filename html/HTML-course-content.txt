@@ -1,0 +1,57 @@
+Module 1: Web Programming Introduction
+	Architecture of a website
+	Different technologies in making the website
+	Web Development Introduction
+Module 2: HTML-Introduction
+	History of HTML
+	What you need to do to get going and make your first HTML page
+	What are HTML Tags and Attributes?
+	HTML Tag vs. Element
+	HTML Attributes
+Module 3: HTML-Basic Formatting Tags
+	HTML Basic Tags
+	HTML Formatting Tags
+	HTML Color Coding
+Module 4: HTML-Grouping Using Div Span
+	Div and Span Tags for Grouping
+Module 5: HTML-Lists
+	Unordered Lists
+	Ordered Lists
+	Definition list
+Module 6: HTML-Images
+	Image and Image Mapping
+Module 7: HTML-Hyperlink
+	URL - Uniform Resource Locator
+	URL Encoding
+Module 8: HTML-Table
+	<table>
+	<th>
+	<tr>
+	<td>
+	<caption>
+	<thead>
+	<tbody>
+	<tfoot>
+	<colgroup>
+	<col>
+Module 9: HTML-Iframe
+	Using Iframe as the Target
+Module 10: HTML-Form
+	<input>
+	<textarea>
+	<button>
+	<select>
+	<label>
+Module 11: HTML-Headers
+	Title
+	Base
+	Link
+	Styles
+	Script
+	Meta
+Module 12: HTML-Miscellaneous
+	HTML Meta Tag
+	XHTML
+	HTML Deprecated Tags & Attributes
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      .container {
+        width: 90%;
+        margin: auto;
+        background-color: #c0c0c0;
+        padding: 10px;
+      }
+      .form-group {
+        margin: 5px 10px;
+      }
+      .form-group label {
+        display: block;
+      }
+      .form-control {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form method="post" enctype="multipart/form-data" >
+        <div class="form-group">
+          <!-- <label for="fullname">Full name</label> -->
+          <input
+            type="text"
+            name="fullname"
+            id="fullname"
+            class="form-control"
+            required
+            placeholder="Full name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="useremail">Email</label>
+          <input type="email" name="email" id="useremail" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="telphone">Phone</label>
+          <input type="tel" name="phone" id="telphone" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" name="subject" id="subject" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea
+            name="desc"
+            id="desc"
+            rows="10"
+            class="form-control"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="pic">Profile Pic</label>
+          <input type="file" name="pic" id="pic" class="form-control" />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit" class="form-control" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
