@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cards sample</title>
+    <style>
+      .card {
+        border: 1px solid gray;
+        width: 60px;
+        height: 100px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        transform-origin: bottom left;
+        transition: transform 2s;
+      }
+      .card-list {
+        position: relative;
+        margin: 30px;
+        height: 10px;
+        cursor: pointer;
+      }
+      .card:nth-child(1) {
+        background-color: aliceblue;
+      }
+      .card:nth-child(2) {
+        background-color: aqua;
+      }
+      .card:nth-child(3) {
+        background-color: blue;
+      }
+      .card:nth-child(4) {
+        background-color: chocolate;
+      }
+      .card:nth-child(5) {
+        background-color: pink;
+      }
+      .card:nth-child(6) {
+        background-color: brown;
+      }
+      .card:nth-child(7) {
+        background-color: teal;
+      }
+      .card:nth-child(8) {
+        background-color: red;
+      }
+      .card-list:hover .card:nth-child(1) {
+        transform: rotate(-30deg);
+      }
+      .card-list:hover .card:nth-child(2) {
+        transform: rotate(-20deg);
+      }
+      .card-list:hover.card:nth-child(3) {
+        transform: rotate(-10deg);
+      }
+      .card-list:hover .card:nth-child(4) {
+        /* background-color: chocolate; */
+      }
+      .card-list:hover .card:nth-child(5) {
+        transform: rotate(10deg);
+      }
+      .card-list:hover .card:nth-child(6) {
+        transform: rotate(20deg);
+      }
+      .card-list:hover .card:nth-child(7) {
+        transform: rotate(30deg);
+      }
+      .card-list:hover .card:nth-child(8) {
+        transform: rotate(35deg);
+      }
+      .highlight {
+        display: inline-block;
+        width: 50px;
+        height: 60px;
+        background-color: greenyellow;
+        margin: 150px;
+      }
+      .highlight:hover {
+        /* width: 100px;
+        height: 120px; */
+        transform: scale(2, 2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-list">
+        <div class="card">1</div>
+        <div class="card">2</div>
+        <div class="card">3</div>
+        <div class="card">4</div>
+        <div class="card">5</div>
+        <div class="card">6</div>
+        <div class="card">7</div>
+        <div class="card">8</div>
+      </div>
+      <div class="highlight"></div>
+    </div>
+  </body>
+</html>
