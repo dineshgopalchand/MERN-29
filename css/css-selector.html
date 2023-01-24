@@ -20,12 +20,133 @@
       #header {
         font-size: 3rem;
       }
+      .item {
+        padding: 10px;
+        box-shadow: 1px 2px 9px gray;
+        margin: 20px;
+        position: relative;
+      }
+      /* .item-list > .item:not(:last-child) {
+        border-bottom: 1px solid red;
+      } */
+      .item-list > .item:not(:nth-child(3n), :last-child)::after {
+        content: "";
+        width: 100%;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        z-index: 999;
+        background-color: red;
+        height: 1px;
+      }
     </style>
   </head>
   <body>
     <div class="container" id="I01">
       Container
       <div id="header">Header</div>
+    </div>
+
+    <div class="item-list">
+      <div class="item">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
+        numquam.
+      </div>
+      <div class="item">
+        Magni repellat facilis commodi excepturi voluptates maxime nobis odit
+        suscipit.
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Et totam dicta possimus nam voluptatum odio, perferendis tempora
+        eligendi?
+      </div>
+      <div class="item">
+        Amet nesciunt eaque in officia nam repudiandae, fugiat obcaecati quos!
+      </div>
     </div>
   </body>
 </html>

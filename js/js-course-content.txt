@@ -1,0 +1,103 @@
+Introduction to JavaScript
+	Introduction to Scripting
+	JavaScript Characteristics
+	JavaScript and Common Programming Concepts
+	JavaScript Flavors and Versions
+	Technologies Based on JavaScript
+	Server-Side vs. Client-Side Applications
+	Annotating Your Code with Comments
+	Expanding the Role of JavaScript
+
+Working with Variables and Data in JavaScript
+	Using JavaScript to Communicate with the User
+	Using Data More Than Once: Variables
+	JavaScript Operators
+	JavaScript Expressions
+	JavaScript Alerts and Prompts
+	Inline Scripting, Simple User Events and Basic Event Handlers
+	JavaScript Keywords and Reserved Words
+	
+Controlling Program Flow in JavaScript
+	Controlling Decisional Program Flow
+	The if...else Statement
+	The while Statement
+	The do...while Statement
+	The for Statement
+	The break Statement
+	The continue Statement
+	The switch Statement
+	
+Functions, Methods and Events in JavaScript
+	Introduction to Functions
+	Defining a Function
+	Calling a Function
+	Methods as Functions
+	Types of Functions
+	User Events and JavaScript Event Handlers
+
+JavaScript Language Objects
+	Introduction to JavaScript Language Objects
+	The String Object
+	Evaluating Strings
+	JavaScript Regular Expressions
+	The Array Object
+	The forEach Method
+	The Map Method
+	The Date Object
+	Setting and Extracting Time Information
+	The Math Object
+	
+	
+Custom JavaScript Objects
+	Creating Custom Objects
+	Creating a JavaScript Object: The Constructor
+	Creating an Instance of a Custom Object
+	Creating Object Methods
+	Creating Functions for Your Objects
+	Concept of Classes
+	Iterators and Generators
+	Call, apply and bind
+
+JavaScript BOM Objects
+	Document Object Model (DOM)
+	window Object
+	document Object
+	image Object
+	history Object
+	location Object
+	navigator Object
+	Virtual DOM
+
+Developing Interactive Forms with JavaScript
+	Interactive Forms
+	Overview of Form Elements
+	Referring to Form Elements
+	The form Object
+	The input Elements and text Objects
+	The textarea object
+	The select Object
+	Form Validation
+
+
+Debugging and Troubleshooting JavaScript
+	What Is Debugging?
+	Tools for Debugging Code
+	Testing Code in Various Browsers
+	Debugging Logic Errors
+	JavaScript and Mobile Devices
+
+JavaScript and AJAX
+	Introduction to AJAX
+	Handling Data and Content Types
+	Interactions Among JavaScript, Data and HTML
+	Using AJAX Scripts
+	AJAX and Servers
+	AJAX and Databases
+	Usability Issues with AJAX
+	Combining AJAX with Libraries
+
+Introduction to Web APIs
+	Web Application Programming Interface (API)
+	The Web Storage API
+	The Geolocation API
+	The Canvas API
