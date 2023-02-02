@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/@fortawesome/fontawesome-free/css/solid.min.css"
+    />
+    <style>
+      .f-grow-1 {
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Todo list</h2>
+      <form onsubmit="addNewTodo(event)">
+        <div class="d-flex">
+          <div class="p-2 f-grow-1">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="todoitem"
+                id="todoItem"
+                placeholder="Add New Todo Item"
+              />
+            </div>
+          </div>
+          <div class="p-2">
+            <button class="btn btn-primary">Add</button>
+          </div>
+        </div>
+      </form>
+      <hr />
+      <ul class="list-group list-group-flush" id="todoListing"></ul>
+    </div>
+    <script>
+      var todoList = JSON.parse(localStorage.getItem("todolist"));
+      console.log(todoList);
+      todoListingFn();
+      function addNewTodo(e) {
+        e.preventDefault();
+        const inputElement = document.getElementById("todoItem");
+        const newItemValue = inputElement.value;
+        if (newItemValue.length >= 5) {
+          console.log(newItemValue);
+          todoList.push({
+            id: Date.now(),
+            detail: newItemValue,
+            active: true,
+          });
+          inputElement.value = "";
+        }
+        // console.log(todoList);
+        updateTodoStorage();
+        todoListingFn();
+      }
+      function todoListingFn() {
+        const listingEle = document.querySelector("#todoListing");
+
+        // let todoListEle = "";
+        // for (let index = 0; index < todoList.length; index++) {
+        //   todoListEle += `
+        //     <li class="list-group-item d-flex">
+        //   <div class="p-2 f-grow-1">${todoList[index].detail}</div>
+        //   <div class="p-2">
+        //     <i class="fa-solid fa-pen-to-square"></i>
+        //   </div>
+        //   <div class="p-2">
+        //     <button class="btn btn-danger">Delete</button>
+        //   </div>
+        // </li>
+        //     `;
+        // }
+        // let todoListEle = todoList.map((item) => {
+        //   return `
+        //     <li class="list-group-item d-flex">
+        //   <div class="p-2 f-grow-1">${item.detail}</div>
+        //   <div class="p-2">
+        //     <i class="fa-solid fa-pen-to-square"></i>
+        //   </div>
+        //   <div class="p-2">
+        //     <button class="btn btn-danger" >Delete</button>
+        //   </div>
+        // </li>
+        //     `;
+        // });
+
+        // // console.log(todoListEle);
+        // listingEle.innerHTML = todoListEle.join("");
+        listingEle.innerHTML = "";
+        todoList.forEach((item) => {
+          const listEle = document.createElement("li");
+          listEle.classList = "list-group-item d-flex";
+
+          const detailEle = document.createElement("div");
+          detailEle.classList = "p-2 f-grow-1";
+          detailEle.innerText = item.detail;
+          listEle.appendChild(detailEle);
+
+          const editDivEle = document.createElement("div");
+          editDivEle.classList.add("p-2");
+          editDivEle.innerHTML = ' <i class="fa-solid fa-pen-to-square"></i>';
+          listEle.appendChild(editDivEle);
+
+          const deleteDivEle = document.createElement("div");
+          deleteDivEle.classList.add("p-2");
+          const deleteButton = document.createElement("button");
+          deleteButton.classList = "btn btn-danger";
+          deleteButton.innerText = "Delete";
+          deleteButton.addEventListener("click", () => deleteFn(item));
+          deleteDivEle.appendChild(deleteButton);
+          listEle.appendChild(deleteDivEle);
+
+          listingEle.append(listEle);
+        });
+      }
+      function deleteFn(deleteitem) {
+        todoList = todoList.filter((item) => item.id != deleteitem.id);
+        updateTodoStorage();
+        todoListingFn();
+      }
+      function updateTodoStorage() {
+        localStorage.setItem("todolist", JSON.stringify(todoList));
+      }
+    </script>
+  </body>
+</html>

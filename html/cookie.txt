@@ -1,0 +1,7 @@
+document.cookie.split('; ').reduce((prev,item)=>{
+    const itemval=item.split('=');
+    // console.log(itemval)
+    // console.log(prev)
+    prev[itemval[0]]=itemval[1];
+    return prev;
+},{})
