@@ -21,6 +21,17 @@
       .f-grow-1 {
         flex-grow: 1;
       }
+      .list-item {
+        cursor: pointer;
+        color: green;
+      }
+      .list-item:hover {
+        background-color: #e2e2e2;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -70,45 +81,19 @@
       }
       function todoListingFn() {
         const listingEle = document.querySelector("#todoListing");
-
-        // let todoListEle = "";
-        // for (let index = 0; index < todoList.length; index++) {
-        //   todoListEle += `
-        //     <li class="list-group-item d-flex">
-        //   <div class="p-2 f-grow-1">${todoList[index].detail}</div>
-        //   <div class="p-2">
-        //     <i class="fa-solid fa-pen-to-square"></i>
-        //   </div>
-        //   <div class="p-2">
-        //     <button class="btn btn-danger">Delete</button>
-        //   </div>
-        // </li>
-        //     `;
-        // }
-        // let todoListEle = todoList.map((item) => {
-        //   return `
-        //     <li class="list-group-item d-flex">
-        //   <div class="p-2 f-grow-1">${item.detail}</div>
-        //   <div class="p-2">
-        //     <i class="fa-solid fa-pen-to-square"></i>
-        //   </div>
-        //   <div class="p-2">
-        //     <button class="btn btn-danger" >Delete</button>
-        //   </div>
-        // </li>
-        //     `;
-        // });
-
-        // // console.log(todoListEle);
-        // listingEle.innerHTML = todoListEle.join("");
         listingEle.innerHTML = "";
         todoList.forEach((item) => {
           const listEle = document.createElement("li");
-          listEle.classList = "list-group-item d-flex";
+          listEle.classList = "list-group-item  d-flex";
 
           const detailEle = document.createElement("div");
-          detailEle.classList = "p-2 f-grow-1";
+          detailEle.classList = "p-2 list-item f-grow-1";
+          if (!item.active) {
+            detailEle.classList.add("completed");
+          }
           detailEle.innerText = item.detail;
+          detailEle.setAttribute("data-todo-id", item.id);
+          detailEle.addEventListener("click", changeStatus);
           listEle.appendChild(detailEle);
 
           const editDivEle = document.createElement("div");
@@ -136,6 +121,33 @@
       function updateTodoStorage() {
         localStorage.setItem("todolist", JSON.stringify(todoList));
       }
+      function changeStatus() {
+        const itemID = event.target.getAttribute("data-todo-id");
+        todoList = todoList.map((item) => {
+          return {
+            ...item,
+            active: item.id != itemID ? item.active : !item.active,
+          };
+        });
+        updateTodoStorage();
+        todoListingFn();
+      }
+
+      // example of event delegation
+      // document.addEventListener("click", function (event) {
+      //   console.log(event);
+      //   if (event.target.matches("div.list-item")) {
+      //     const itemID = event.target.getAttribute("data-todo-id");
+      //     todoList = todoList.map((item) => {
+      //       return {
+      //         ...item,
+      //         active: item.id != itemID ? item.active : !item.active,
+      //       };
+      //     });
+      //     updateTodoStorage();
+      //     todoListingFn();
+      //   }
+      // });
     </script>
   </body>
 </html>
