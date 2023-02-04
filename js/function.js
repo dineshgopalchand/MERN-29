@@ -118,3 +118,30 @@ nDetails.name = "Manish";
 nDetails.addr.location = "AJMR";
 console.log(details);
 console.log(nDetails);
+
+Array.isArray([1,2]);
+Array.isArray(2);
+
+
+
+class Student{
+  constructor(){
+    this.details = {
+      name: "dinesh",
+      course: "React",
+      addr: {
+        location: "Mum",
+      },
+    }
+  }
+  getLocation(){
+    return this.details.addr.location
+  }
+  get location(){
+    return this.details.addr.location
+  }
+}
+
+const s1=new Student();
+s1.getLocation();
+s1.location;
