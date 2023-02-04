@@ -1,0 +1,79 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur odio similique, consequatur eos labore voluptate repellat cumque vel doloremque ea quod molestiae voluptatibus sed ex dolor, qui pariatur quas fugiat. Quis voluptas ex dolores dicta exercitationem iure ut, tempora reprehenderit cumque expedita, repellat, ad eligendi placeat cupiditate autem facere illo?"
+    }
+  ],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" },
+  "todos": [
+    {
+      "id": 1675524483148,
+      "detail": "test 2",
+      "active": true
+    },
+    {
+      "id": 1675524557394,
+      "detail": "test 3",
+      "active": true
+    },
+    {
+      "id": 1675524566898,
+      "detail": "test test",
+      "active": true
+    },
+    {
+      "id": 1675524573914,
+      "detail": "test 1",
+      "active": true
+    },
+    {
+      "id": 1675524574994,
+      "detail": "test 1",
+      "active": true
+    },
+    {
+      "id": 1675524575634,
+      "detail": "test 1",
+      "active": true
+    },
+    {
+      "id": 1675524576138,
+      "detail": "test 1",
+      "active": true
+    },
+    {
+      "id": 1675524576546,
+      "detail": "test 1",
+      "active": true
+    },
+    {
+      "id": 1675524576890,
+      "detail": "test 1",
+      "active": true
+    },
+    {
+      "id": 1675524577218,
+      "detail": "test 1",
+      "active": true
+    },
+    {
+      "id": 1675524579810,
+      "detail": "vvvtest 1",
+      "active": true
+    },
+    {
+      "id": 1675524580306,
+      "detail": "test 1",
+      "active": true
+    },
+    {
+      "id": 1675524580707,
+      "detail": "test 1",
+      "active": true
+    }
+  ]
+}

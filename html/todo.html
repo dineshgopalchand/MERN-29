@@ -59,6 +59,16 @@
       <ul class="list-group list-group-flush" id="todoListing"></ul>
     </div>
     <script>
+      // var todoList = [];
+      // async function fetchTodoList() {
+      //   const result = await fetch("http://localhost:3029/todos").then((res) =>
+      //     res.json()
+      //   );
+      //   console.log(result);
+      //   todoList = result;
+      //   todoListingFn();
+      // }
+      // fetchTodoList();
       var todoList = JSON.parse(localStorage.getItem("todolist"));
       console.log(todoList);
       todoListingFn();
