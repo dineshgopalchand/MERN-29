@@ -1,5 +1,5 @@
 import React from "react";
-export function Course() {
+function Course() {
   return (
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea.</p>
   );
@@ -9,3 +9,4 @@ export function Course() {
   // });
   // return React.createElement("p", "....Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea.");
 }
+export default Course;

@@ -8,5 +8,3 @@ const Courses = () => {
 };
 
 export default Courses;
-
-export const getSQRT = (val) => Math.sqrt(val);
