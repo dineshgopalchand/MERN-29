@@ -10,4 +10,20 @@ function Course(props) {
     </div>
   );
 }
+// class Course extends React.Component {
+//   constructor(props) {
+//     super();
+//     this.details = props.details;
+//     // console.log(props);
+//   }
+//   render() {
+//     return (
+//       <div className="d-flex course">
+//         <div className="title">{this.details.name}</div>
+//         <button className="btn-primary">Edit</button>
+//         <button className="btn-danger">Delete</button>
+//       </div>
+//     );
+//   }
+// }
 export default Course;
