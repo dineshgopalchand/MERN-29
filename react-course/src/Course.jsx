@@ -1,12 +1,13 @@
 import React from "react";
-function Course() {
+import "./Course.css";
+function Course(props) {
+  const { id, name, status } = props.details;
   return (
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea.</p>
+    <div className="d-flex course">
+      <div className="title">{name}</div>
+      <button className="btn-primary">Edit</button>
+      <button className="btn-danger">Delete</button>
+    </div>
   );
-  // return React.createElement("p", {
-  //   children:
-  //     "....Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea.",
-  // });
-  // return React.createElement("p", "....Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ea.");
 }
 export default Course;
