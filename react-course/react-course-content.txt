@@ -1,0 +1,21 @@
+> Environment and project setup 
+> Introducing JSX 
+> Rendering Elements 
+> Components and Props 
+> State(useState) and Lifecycle 
+> Handling Events 
+> Conditional Rendering 
+> Lists and Keys 
+> Forms 
+> Lifting State Up 
+> Styling - 
+    >>Styled Component 
+    >>React css module 
+>Refs(useRef) 
+>useEffect 
+>Fetch and Axios 
+>Portals  - 
+>useReducer
+>useContext
+>Router
+>Redux
