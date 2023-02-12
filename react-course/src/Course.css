@@ -8,13 +8,4 @@
 .course .title {
   flex-grow: 1;
 }
-.btn-primary {
-  background-color: blue;
-  color: aliceblue;
-  border: 0;
-}
-.btn-danger {
-  background-color: red;
-  color: aliceblue;
-  border: 0;
-}
+
