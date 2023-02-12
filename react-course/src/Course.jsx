@@ -1,29 +1,24 @@
 import React from "react";
 import "./Course.css";
+import { Button } from "react-bootstrap";
+import { VscEdit } from "react-icons/vsc";
+import { RiDeleteBin5Line } from "react-icons/ri";
 function Course(props) {
   const { id, name, status } = props.details;
   return (
     <div className="d-flex course">
       <div className="title">{name}</div>
-      <button className="btn-primary">Edit</button>
-      <button className="btn-danger">Delete</button>
+      {/* <button className="btn btn-primary">Edit</button> */}
+      <Button variant="primary">
+        <VscEdit  />
+        Edit
+      </Button>
+      {/* <button className="btn btn-danger">Delete</button> */}
+      <Button variant="danger">
+        <RiDeleteBin5Line />
+        Delete
+      </Button>
     </div>
   );
 }
-// class Course extends React.Component {
-//   constructor(props) {
-//     super();
-//     this.details = props.details;
-//     // console.log(props);
-//   }
-//   render() {
-//     return (
-//       <div className="d-flex course">
-//         <div className="title">{this.details.name}</div>
-//         <button className="btn-primary">Edit</button>
-//         <button className="btn-danger">Delete</button>
-//       </div>
-//     );
-//   }
-// }
 export default Course;

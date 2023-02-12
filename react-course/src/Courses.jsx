@@ -32,11 +32,6 @@ const Courses = () => {
   return (
     <>
       <h3>{title}</h3>
-      {/* <ul className="list">
-        {courseList.map((item) => {
-          return <li key={item.id}>{item.name.toLocaleLowerCase()}</li>;
-        })}
-      </ul> */}
       {courseList.map((item) => {
         return <Course details={item} key={item.id}></Course>;
       })}
