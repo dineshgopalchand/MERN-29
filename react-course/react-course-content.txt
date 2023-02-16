@@ -1,9 +1,9 @@
-> Environment and project setup 
-> Introducing JSX 
-> Rendering Elements 
-> Components and Props 
+> Environment and project setup - D
+> Introducing JSX  - D
+> Rendering Elements  - D
+> Components and Props  - D
 > State(useState) and Lifecycle 
-> Handling Events 
+> Handling Events - D
 > Conditional Rendering 
 > Lists and Keys 
 > Forms 

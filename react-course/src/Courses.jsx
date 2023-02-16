@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import Course from "./Course";
+import FormControl from "./UI/FormControl";
+import FormGroup from "./UI/FormGroup";
 const coursesList = [
   {
     id: 1,
@@ -32,7 +34,7 @@ const coursesList = [
 const Courses = () => {
   const title = "Course List";
   const [courseList, setCourseList] = useState(coursesList);
-  const [newCourse, setNewCourse] = useState("");
+  const [newCourse, setNewCourse] = useState("dddd");
   const inputChangeHandler = (event) => {
     const value = event.target.value;
     setNewCourse(value);
@@ -89,8 +91,8 @@ const Courses = () => {
     <>
       <h3>{title}</h3>
       <form onSubmit={addCourse}>
-        <div className="form-group inline-form-block mx-3">
-          <input
+        <FormGroup className="mx-3" name="new item form" title="some title">
+          <FormControl
             type="text"
             value={newCourse}
             className="form-control"
@@ -99,7 +101,7 @@ const Courses = () => {
             onChange={inputChangeHandler}
           />
           <button className="btn btn-primary">Add</button>
-        </div>
+        </FormGroup>
       </form>
       {/* {courseList.map((item,index) => {
         return (
@@ -119,7 +121,10 @@ const Courses = () => {
               key={item.id}
               className=" col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-1"
             >
-              <Card title={item.name}>
+              <Card
+                title={item.name}
+                onClick={() => console.log("clicked Card element")}
+              >
                 <div>
                   <p>
                     {item.name}: Lorem ipsum, dolor sit amet consectetur
@@ -131,8 +136,24 @@ const Courses = () => {
                   </p>
                 </div>
                 <div>
-                  <button className="btn btn-primary" onClick={()=>updateCourse(item)}>Edit</button>
-                  <button className="btn btn-danger" onClick={()=>deleteCourse(item.id)}>Delete</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      updateCourse(item);
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      deleteCourse(item.id);
+                    }}
+                  >
+                    Delete
+                  </button>
                 </div>
               </Card>
             </div>
