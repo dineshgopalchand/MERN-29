@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Card from "./Card";
 import Course from "./Course";
 const coursesList = [
   {
@@ -64,6 +65,7 @@ const Courses = () => {
     });
   };
   const updateCourse = (courseDetail) => {
+    console.log(courseDetail);
     // setCourseList((prevCourseList) => {
     //   const latestCourseList = [...prevCourseList];
     //   const courseIndex = latestCourseList.findIndex(
@@ -99,7 +101,7 @@ const Courses = () => {
           <button className="btn btn-primary">Add</button>
         </div>
       </form>
-      {courseList.map((item,index) => {
+      {/* {courseList.map((item,index) => {
         return (
           <Course
             details={item}
@@ -109,7 +111,34 @@ const Courses = () => {
             className={`${index%2===0?'light-color':''}`}
           ></Course>
         );
-      })}
+      })} */}
+      <div className="row my-3 mx-2">
+        {courseList.map((item, index) => {
+          return (
+            <div
+              key={item.id}
+              className=" col-sm-12 col-md-6 col-lg-3 col-xl-2 mb-1"
+            >
+              <Card title={item.name}>
+                <div>
+                  <p>
+                    {item.name}: Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Sequi, aperiam?
+                  </p>
+                  <p>
+                    Fugit harum nihil rem nulla porro repellendus inventore eum
+                    eveniet.
+                  </p>
+                </div>
+                <div>
+                  <button className="btn btn-primary" onClick={()=>updateCourse(item)}>Edit</button>
+                  <button className="btn btn-danger" onClick={()=>deleteCourse(item.id)}>Delete</button>
+                </div>
+              </Card>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };
