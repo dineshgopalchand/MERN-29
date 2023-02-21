@@ -4,15 +4,15 @@
 > Components and Props  - D
 > State(useState) and Lifecycle 
 > Handling Events - D
-> Conditional Rendering 
-> Lists and Keys 
+> Conditional Rendering  - D
+> Lists and Keys - D
 > Forms 
-> Lifting State Up 
+> Lifting State Up - D
 > Styling - 
     >>Styled Component 
     >>React css module 
 >Refs(useRef) 
->useEffect 
+>useEffect  - D
 >Fetch and Axios 
 >Portals  - 
 >useReducer
