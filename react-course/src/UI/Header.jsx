@@ -1,4 +1,5 @@
 import React from "react";
+import Clock from "./Clock";
 
 const Header = () => {
   return (
@@ -47,13 +48,11 @@ const Header = () => {
                       Action
                     </a>
                   </li>
-                  
                 </ul>
               </li>
-             
             </ul>
             <div>
-              <time />
+              <Clock />
             </div>
           </div>
         </div>
