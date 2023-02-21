@@ -19,10 +19,10 @@ const Clock = () => {
 
   // Mounting phase
   useEffect(() => {
-    console.log("inside effect with empty dep");
+    // console.log("inside effect with empty dep");
     const timerInterval = setInterval(() => {
       setTimeVal(currentTime());
-      console.log(timeVal);
+    //   console.log(timeVal);
     }, 1000);
     return () => {
       // console.log('unmounted with empty dep');
