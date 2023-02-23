@@ -29,35 +29,11 @@ const ContactForm = () => {
     console.log(formVal);
     // After validation call API to save data
   };
-  const fullnameChangeHandle = (event) => {
+  const formOnChangeEventHandler = (event) => {
     setFormval((prevVal) => {
       return {
         ...prevVal,
-        fullname: event.target.value,
-      };
-    });
-  };
-  const emailChangeHandle = (event) => {
-    setFormval((prevVal) => {
-      return {
-        ...prevVal,
-        email: event.target.value,
-      };
-    });
-  };
-  const detailChangeHandle = (event) => {
-    setFormval((prevVal) => {
-      return {
-        ...prevVal,
-        detail: event.target.value,
-      };
-    });
-  };
-  const subjectChangeHandle = (event) => {
-    setFormval((prevVal) => {
-      return {
-        ...prevVal,
-        subject: event.target.value,
+        [event.target.name]: event.target.value,
       };
     });
   };
@@ -76,7 +52,7 @@ const ContactForm = () => {
               placeholder="Full name"
               ref={fullNameRef}
               value={formVal.fullname}
-              onChange={fullnameChangeHandle}
+              onChange={formOnChangeEventHandler}
             />
           </div>
           <div className="form-group">
@@ -89,7 +65,7 @@ const ContactForm = () => {
               placeholder="Email"
               ref={emailRef}
               value={formVal.email}
-              onChange={emailChangeHandle}
+              onChange={formOnChangeEventHandler}
             />
           </div>
           <div className="form-group">
@@ -102,7 +78,7 @@ const ContactForm = () => {
               placeholder="Subject"
               ref={subjectRef}
               value={formVal.subject}
-              onChange={subjectChangeHandle}
+              onChange={formOnChangeEventHandler}
             />
           </div>
           <div className="form-group">
@@ -110,11 +86,11 @@ const ContactForm = () => {
             <textarea
               className="form-control"
               id="details"
-              name="details"
+              name="detail"
               placeholder="Add some detail"
               ref={detailsRef}
               value={formVal.detail}
-              onChange={detailChangeHandle}
+              onChange={formOnChangeEventHandler}
             ></textarea>
           </div>
           <div className="form-group mt-2">
