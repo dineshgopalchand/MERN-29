@@ -75,10 +75,6 @@ const Courses = () => {
               {item.name}: Lorem ipsum, dolor sit amet consectetur adipisicing
               elit. Sequi, aperiam?
             </p>
-            <p>
-              Fugit harum nihil rem nulla porro repellendus inventore eum
-              eveniet.
-            </p>
           </div>
           <div>
             <button
