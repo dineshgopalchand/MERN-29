@@ -3,6 +3,7 @@ import Courses from "./Courses";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MainLayout from "./layout/MainLayout";
 import ContactForm from "./ContactForm";
+import SignUp from "./SignUp";
 function App() {
   return (
     <div className="App">
@@ -10,7 +11,8 @@ function App() {
       <Courses /> */}
       <MainLayout>
         {/* <Courses /> */}
-        <ContactForm/>
+        {/* <ContactForm/> */}
+        <SignUp/>
       </MainLayout>
     </div>
   );
