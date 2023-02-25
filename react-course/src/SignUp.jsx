@@ -1,5 +1,7 @@
 import { Formik } from "formik";
 import React from "react";
+import Spinner from "react-bootstrap/Spinner";
+import * as Yup from "yup";
 
 const SignUp = () => {
   return (
@@ -11,44 +13,27 @@ const SignUp = () => {
           phone: "",
           password: "",
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
-          }, 400);
+            resetForm();
+          }, 4000);
         }}
-        validate={(values) => {
-          const errors = {};
-          if (!values.email) {
-            errors.email = "Required";
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = "Invalid email address";
-          }
-          if (!values.name) {
-            errors.name = "Required";
-          } else if (
-           values.name.length<3
-          ) {
-            errors.name = "Invalid name";
-          }
-          if (!values.phone) {
-            errors.phone = "Required";
-          } else if (
-            !/^[1-9][0-9]{9,10}$/i.test(
-              values.phone
-            )
-          ) {
-            errors.phone = "Invalid phone";
-          }
-          if (!values.password) {
-            errors.password = "Required";
-          } else if (values.password.length < 8) {
-            errors.password = "Short password";
-          }
-          return errors;
-        }}
+        validationSchema={Yup.object({
+          name: Yup.string()
+            .min(3, "Must be atleast 3 character long")
+            .required("Name is Required"),
+          email: Yup.string()
+            .email("Invalid email address")
+            .required("Required"),
+          phone: Yup.string()
+            .matches(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,"Invalid phone number")
+            .required("Required"),
+          password: Yup.string()
+            .min(8, "Very short password")
+            .required("Required"),
+        })}
       >
         {({
           values,
@@ -58,8 +43,13 @@ const SignUp = () => {
           handleBlur,
           handleSubmit,
           isSubmitting,
+          resetForm,
         }) => (
-          <form onSubmit={handleSubmit} className="container m-4">
+          <form
+            onSubmit={handleSubmit}
+            className="container m-4"
+            autoComplete="off"
+          >
             <div className="form-group">
               <input
                 type="text"
@@ -67,7 +57,8 @@ const SignUp = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.name}
-                className="form-control"
+                placeholder="Full name"
+                className="form-control mb-2"
               />
               {errors.name && errors.name}
             </div>
@@ -78,7 +69,8 @@ const SignUp = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.email}
-                className="form-control"
+                placeholder="E-mail"
+                className="form-control mb-2"
               />
               {errors.email && touched.email && errors.email}
             </div>
@@ -89,7 +81,8 @@ const SignUp = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.phone}
-                className="form-control"
+                placeholder="Phone Number"
+                className="form-control mb-2"
               />
               {errors.phone && touched.phone && errors.phone}
             </div>
@@ -100,13 +93,19 @@ const SignUp = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}
-                className="form-control"
+                placeholder="Password"
+                className="form-control mb-2"
               />
               {errors.password && touched.password && errors.password}
             </div>
             <button type="submit" disabled={isSubmitting}>
               Submit
             </button>
+            {isSubmitting && (
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            )}
           </form>
         )}
       </Formik>
