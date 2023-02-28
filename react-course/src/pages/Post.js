@@ -1,31 +1,43 @@
 import React, { useState, useEffect } from "react";
+import PostItem from "../features/post/PostItem";
+import getData from '../utils/fetch'
+
 
 const Post = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3029/posts")
-      .then((res) => res.json())
-      .then((posts) => {
-        setPosts(posts);
-      });
+    // fetch("http://localhost:3029/posts")
+    //   .then((res) => (res.ok ? res.json() : []))
+    //   .then((posts) => {
+    //     setPosts(posts);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    const fetchData = async () => {
+      //   try {
+      //     const postList = await fetch("http://localhost:3029/postsss").then(
+      //       (res) => res.json()
+      //     );
+      //     console.log(postList);
+
+      //     setPosts(postList);
+      //   } catch {
+      //     setPosts([]);
+      //   }
+      const postList = await getData("http://localhost:3029/posts");
+      setPosts(postList);
+    };
+    fetchData();
   }, []);
   return (
     <div className="row mt-2">
       {posts.map((post) => (
-        // <div className="col-xs-12 col-md-6 col-lg-4">
-        <div className="col-4 mb-1" key={post.id}>
-          <div className="card w-100">
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" className="btn btn-primary">
-                Go somewhere
-              </a>
-            </div>
-          </div>
+        <div
+          className="col-md-3 col-sm-6 col-xs-12 col-xl-2 mb-1"
+          key={post.id}
+        >
+          <PostItem post={post} />
         </div>
       ))}
     </div>
