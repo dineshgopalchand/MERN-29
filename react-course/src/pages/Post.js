@@ -1,34 +1,24 @@
 import React, { useState, useEffect } from "react";
 import PostItem from "../features/post/PostItem";
-import getData from '../utils/fetch'
-
+import getData from "../utils/fetch";
 
 const Post = () => {
   const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    // fetch("http://localhost:3029/posts")
-    //   .then((res) => (res.ok ? res.json() : []))
-    //   .then((posts) => {
-    //     setPosts(posts);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    const fetchData = async () => {
-      //   try {
-      //     const postList = await fetch("http://localhost:3029/postsss").then(
-      //       (res) => res.json()
-      //     );
-      //     console.log(postList);
 
-      //     setPosts(postList);
-      //   } catch {
-      //     setPosts([]);
-      //   }
+  useEffect(() => {
+    let isOnce = true;
+    const fetchData = async () => {
       const postList = await getData("http://localhost:3029/posts");
       setPosts(postList);
     };
-    fetchData();
+    setTimeout(() => {
+      if (isOnce) {
+        fetchData();
+      }
+    });
+    return () => {
+      isOnce = false;
+    };
   }, []);
   return (
     <div className="row mt-2">
