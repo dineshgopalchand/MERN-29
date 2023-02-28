@@ -8,7 +8,8 @@ const Post = () => {
   useEffect(() => {
     let isOnce = true;
     const fetchData = async () => {
-      const postList = await getData("http://localhost:3029/posts");
+    //   const postList = await getData("http://localhost:3029/posts");
+      const postList = await getData("/posts");
       setPosts(postList);
     };
     setTimeout(() => {
