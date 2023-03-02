@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useMemo } from "react";
 import AddNewPost from "../features/post/AddNewPost";
 import PostItem from "../features/post/PostItem";
 import getData from "../utils/fetch";
@@ -20,6 +20,18 @@ const postReducer = (state, { type, payload }) => {
 };
 const Post = () => {
   const [posts, dispatch] = useReducer(postReducer, []);
+  const [val] = useState(57);
+//   const data = ((num) => {
+//     console.log(num);
+//     return Math.pow(num, num);
+//   })(val);
+//   console.log(data);
+
+  const data1 = useMemo(() => {
+    console.log({ val });
+    return Math.pow(val, val);
+  }, [val]);
+  console.log(data1);
 
   useEffect(() => {
     let isOnce = true;
