@@ -1,16 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import AddNewPost from "../features/post/AddNewPost";
 import PostItem from "../features/post/PostItem";
 import getData from "../utils/fetch";
 
+const SET_POST = "setpost";
+const ADD_POST = "addpost";
+const REMOVE_POST = "removePost";
+const postReducer = (state, { type, payload }) => {
+  switch (type) {
+    case SET_POST:
+      return payload;
+    case ADD_POST:
+      return [payload, ...state];
+    case REMOVE_POST:
+      return state.filter((post) => post.id !== payload.id);
+    default:
+      return state;
+  }
+};
 const Post = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, dispatch] = useReducer(postReducer, []);
 
   useEffect(() => {
     let isOnce = true;
     const fetchData = async () => {
       const postList = await getData("/posts");
-      setPosts(postList);
+      dispatch({ type: SET_POST, payload: postList });
     };
     setTimeout(() => {
       if (isOnce) {
@@ -31,16 +46,13 @@ const Post = () => {
       method: "post",
       data: newPost,
     });
-    setPosts((prevPost) => [res, ...prevPost]);
-    // console.log(res);
+    dispatch({ type: ADD_POST, payload: res });
   };
   const deletePost = async ({ id }) => {
     await getData(`/posts/${id}`, {
       method: "delete",
     });
-    // console.log(res);
-    setPosts((prevPost) => prevPost.filter((post) => post.id !== id));
-    // console.log(res);
+    dispatch({ type: REMOVE_POST, payload: { id } });
   };
   return (
     <>
