@@ -1,10 +1,9 @@
-@import './styles/typography.scss';
-.App {
-  color: $main-text-color;
-  h2{
-    text-decoration: underline;
-  }
-  >p{
-    font-style: italic;
+@import "./styles/typography.scss";
+.top-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  main {
+    flex: 1 1 auto;
   }
 }
