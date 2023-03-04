@@ -2,20 +2,20 @@
 > Introducing JSX  - D
 > Rendering Elements  - D
 > Components and Props  - D
-> State(useState) and Lifecycle 
+> State(useState) and Lifecycle  -D
 > Handling Events - D
 > Conditional Rendering  - D
 > Lists and Keys - D
-> Forms 
+> Forms  - D
 > Lifting State Up - D
 > Styling - 
     >>Styled Component 
     >>React css module 
->Refs(useRef) 
+>Refs(useRef)  - D
 >useEffect  - D
->Fetch and Axios 
+>Fetch and Axios  - D
 >Portals  - 
->useReducer
+>useReducer - D
 >useContext
 >Router
 >Redux
