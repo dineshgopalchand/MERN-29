@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.scss";
+import Post from "./pages/Post";
 import Footer from "./UI/Footer";
 import Header from "./UI/Header";
 
@@ -8,7 +9,7 @@ function App() {
     <div className="top-container" >
     <Header/>
     <main>
-      asdfsd
+      <Post/>
     </main>
     <Footer/>
     </div>

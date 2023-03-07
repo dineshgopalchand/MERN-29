@@ -14,7 +14,7 @@
 >Refs(useRef)  - D
 >useEffect  - D
 >Fetch and Axios  - D
->Portals  - 
+>Portals  - D
 >useReducer - D
 >useContext
 >Router

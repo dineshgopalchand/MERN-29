@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:api": "json-server --watch db.json --port 3029"
+    "start": "json-server --watch db.json --port 3029"
   },
   "keywords": [],
   "author": "",
