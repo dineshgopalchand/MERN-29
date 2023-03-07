@@ -19,7 +19,11 @@ export default function Post() {
     const cardHeader = <b>{post.title}</b>;
     const cardBody = <div>{post.body}</div>;
     const cardFooter = <div>
-        <a href={`post/${post.id}`}>View Post</a>
+        <a style={{
+            border:'1px solid blue',
+            backgroundColor:'lightblue',
+            textDecoration:'none'
+        }}href={`post/${post.id}`}>View Post</a>
     </div>
     return (
       <div className="col-3 my-1" key={post.id}>
