@@ -21,7 +21,7 @@ export default function Post() {
     const cardBody = <div>{post.body}</div>;
     const cardFooter = <div>
         <ButtonLink href={`post/${post.id}`} className="post-view-link">View Post</ButtonLink>
-        <a href={`post/${post.id}`} className="link-button">View Post</a>
+        {/* <a href={`post/${post.id}`} className="link-button">View Post</a> */}
     </div>
     return (
       <div className="col-3 my-1" key={post.id}>
