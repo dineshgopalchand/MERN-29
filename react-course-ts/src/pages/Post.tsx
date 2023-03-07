@@ -1,4 +1,5 @@
 import { useFetch } from "usehooks-ts";
+import ButtonLink from "../UI/ButtonLink";
 import Card from "../UI/Card";
 
 const url = `http://jsonplaceholder.typicode.com/posts`;
@@ -19,11 +20,7 @@ export default function Post() {
     const cardHeader = <b>{post.title}</b>;
     const cardBody = <div>{post.body}</div>;
     const cardFooter = <div>
-        <a style={{
-            border:'1px solid blue',
-            backgroundColor:'lightblue',
-            textDecoration:'none'
-        }} href={`post/${post.id}`}>View Post</a>
+        <ButtonLink href={`post/${post.id}`}>View Post</ButtonLink>
     </div>
     return (
       <div className="col-3 my-1" key={post.id}>
@@ -38,3 +35,5 @@ export default function Post() {
     </>
   );
 }
+
+
