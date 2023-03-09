@@ -1,13 +1,19 @@
-import React from 'react'
-import { IFormVal } from './ContextSample'
+import { FormValContext } from "./ContextSample";
 
-const Child4 = (props:{formVal:IFormVal}) => {
+const Child4 = () => {
   return (
-    <>
-    <div>Child4</div>
-    <div>USER Name:{props.formVal.username}</div>
-    </>
-  )
-}
+    <FormValContext.Consumer>
+      {(ctx) => {
+        console.log(ctx);
+        return (
+          <>
+            <div>Child4</div>
+            <div>USER Name:{ctx.username}</div>
+          </>
+        );
+      }}
+    </FormValContext.Consumer>
+  );
+};
 
-export default Child4
+export default Child4;

@@ -1,12 +1,10 @@
-import React from 'react'
 import Child3 from './Child3'
-import { IFormVal } from './ContextSample'
 
-const Child2 = (props:{formVal:IFormVal}) => {
+const Child2 = () => {
   return (
     <>
     <div>Child2</div>
-    <Child3 {...props}/>
+    <Child3 />
     </>
   )
 }
