@@ -19,22 +19,24 @@ export default function Post() {
   const postListElement = postList.map((post) => {
     const cardHeader = <b>{post.title}</b>;
     const cardBody = <div>{post.body}</div>;
-    const cardFooter = <div>
-        <ButtonLink href={`post/${post.id}`} className="post-view-link">View Post</ButtonLink>
+    const cardFooter = (
+      <div>
+        <ButtonLink href={`post/${post.id}`} className="post-view-link">
+          View Post
+        </ButtonLink>
         {/* <a href={`post/${post.id}`} className="link-button">View Post</a> */}
-    </div>
+      </div>
+    );
     return (
       <div className="col-3 my-1" key={post.id}>
-        <Card header={cardHeader} body={cardBody} footer={cardFooter}/>
+        <Card header={cardHeader} body={cardBody} footer={cardFooter} />
       </div>
     );
   });
   return (
     <>
-    <div className="c-card">sadfsd</div>
+    <h2>Post List</h2>
       <div className="row">{postListElement}</div>
     </>
   );
 }
-
-
