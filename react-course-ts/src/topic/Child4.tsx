@@ -1,4 +1,4 @@
-import { FormValContext } from "./ContextSample";
+import { FormValContext, ThemeContext } from "./ContextSample";
 
 const Child4 = () => {
   return (
@@ -7,8 +7,17 @@ const Child4 = () => {
         console.log(ctx);
         return (
           <>
-            <div>Child4</div>
-            <div>USER Name:{ctx.username}</div>
+            <ThemeContext.Consumer>
+              {(themeCtx) => {
+                return (
+                  <>
+                    <div>Child4</div>
+                    <div>Theme:{themeCtx}</div>
+                    <div>USER Name:{ctx.username}</div>
+                  </>
+                );
+              }}
+            </ThemeContext.Consumer>
           </>
         );
       }}
