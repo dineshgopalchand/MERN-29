@@ -26,6 +26,11 @@ const navList: INavLink[] = [
     title: "Git user",
     link: "/git-user",
   },
+  {
+    id: 5,
+    title: "Post",
+    link: "/posts",
+  },
 ];
 
 function Header() {

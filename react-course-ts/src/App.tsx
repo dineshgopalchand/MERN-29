@@ -1,23 +1,25 @@
-import React from "react";
+import { Route, Routes } from "react-router";
 import "./App.scss";
-import LoginProvider from "./context/LoginProvider";
+import MainLayout from "./layouts/MainLayout";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import GitUser from "./pages/GitUser";
+import Home from "./pages/Home";
 import Post from "./pages/Post";
-import ContextSample from "./topic/ContextSample";
-import Footer from "./UI/Footer";
-import Header from "./UI/Header";
 
 function App() {
   return (
-    <LoginProvider>
-      <div className="top-container">
-        <Header />
-        <main>
-          <Post/>
-          {/* <ContextSample /> */}
-        </main>
-        <Footer />
-      </div>
-    </LoginProvider>
+    <>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/About" element={<About />}></Route>
+          <Route path="/posts" element={<Post />}></Route>
+          <Route path="/git-user" element={<GitUser />}></Route>
+        </Route>
+      </Routes>
+    </>
   );
 }
 
