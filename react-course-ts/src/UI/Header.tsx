@@ -1,11 +1,13 @@
+import { useContext } from "react";
+import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import classes from "./Header.module.scss";
 import { FaUserCircle } from "react-icons/fa";
-import { useContext, useReducer, useState } from "react";
-import { LoginContext } from "../context/LoginProvider";
+import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
+import { LoginContext } from "../context/LoginProvider";
+import classes from "./Header.module.scss";
 const navList: INavLink[] = [
   {
     id: 1,
@@ -37,12 +39,9 @@ const navList: INavLink[] = [
 function Header() {
   const { loginDetail, loginHandler, logoutHandler } = useContext(LoginContext);
   const navElement = navList.map((nav) => (
-    // <Nav.Link href={nav.link} key={nav.id}>
-    //   {nav.title}
-    // </Nav.Link>
-    <Link  to={nav.link} key={nav.id}>
-      {nav.title}
-    </Link>
+    <LinkContainer to={nav.link} key={nav.id}>
+      <Button>{nav.title}</Button>
+    </LinkContainer>
   ));
 
   return (
