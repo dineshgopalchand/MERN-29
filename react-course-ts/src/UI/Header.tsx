@@ -3,7 +3,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import classes from "./Header.module.scss";
 import { FaUserCircle } from "react-icons/fa";
-import { useReducer, useState } from "react";
+import { useContext, useReducer, useState } from "react";
+import { LoginContext } from "../context/LoginProvider";
 const navList: INavLink[] = [
   {
     id: 1,
@@ -22,49 +23,14 @@ const navList: INavLink[] = [
   },
 ];
 
-const loginInitVal: ILoginVal = {
-  isLogin: false,
-};
-const loginReducer = (state: ILoginVal, action: ILoginAction): ILoginVal => {
-  switch (action.type) {
-    case "login":
-      return { isLogin: true, details: action.payload };
-    case "logout":
-      return { isLogin: false };
-    default:
-      return state;
-  }
-};
 function Header() {
-  const [loginDetail, loginDispatch] = useReducer(loginReducer, loginInitVal);
-  const [loginPending,setLoginPending]=useState(false);
+  const { loginDetail, loginHandler, logoutHandler } = useContext(LoginContext);
   const navElement = navList.map((nav) => (
     <Nav.Link href={nav.link} key={nav.id}>
       {nav.title}
     </Nav.Link>
   ));
-  const loginHandler = async () => {
-    setLoginPending(true);
-    const userDetails: ILoginDetails = await new Promise((resolve) => {
-      setTimeout(() => {
-        const details: ILoginDetails = {
-          email: "dinesh@gmail.com",
-          name: "Dinesh",
-        };
-        resolve(details);
-      }, 2000);
-    });
-    loginDispatch({
-      type: "login",
-      payload: userDetails,
-    });
-    setLoginPending(false);
-  };
-  const logoutHandler = () => {
-    loginDispatch({
-      type: "logout",
-    });
-  };
+
   return (
     <>
       <Navbar bg="primary" variant="dark">
@@ -80,7 +46,11 @@ function Header() {
                 <FaUserCircle className={`${classes.userIcon} m-1`} />
               </>
             ) : (
-              <button className="btn btn-warning" onClick={loginHandler} disabled={loginPending}>
+              <button
+                className="btn btn-warning"
+                onClick={loginHandler}
+                disabled={loginDetail.loginPending}
+              >
                 Login
               </button>
             )}
@@ -97,16 +67,4 @@ interface INavLink {
   id: number;
   title: string;
   link: string;
-}
-export interface ILoginVal {
-  isLogin: boolean;
-  details?: ILoginDetails;
-}
-export interface ILoginDetails {
-  name: string;
-  email: string;
-}
-export interface ILoginAction {
-  type: "login" | "logout";
-  payload?: ILoginDetails;
 }
