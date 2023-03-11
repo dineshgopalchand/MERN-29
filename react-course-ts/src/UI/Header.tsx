@@ -5,6 +5,7 @@ import classes from "./Header.module.scss";
 import { FaUserCircle } from "react-icons/fa";
 import { useContext, useReducer, useState } from "react";
 import { LoginContext } from "../context/LoginProvider";
+import { Link } from "react-router-dom";
 const navList: INavLink[] = [
   {
     id: 1,
@@ -36,9 +37,12 @@ const navList: INavLink[] = [
 function Header() {
   const { loginDetail, loginHandler, logoutHandler } = useContext(LoginContext);
   const navElement = navList.map((nav) => (
-    <Nav.Link href={nav.link} key={nav.id}>
+    // <Nav.Link href={nav.link} key={nav.id}>
+    //   {nav.title}
+    // </Nav.Link>
+    <Link  to={nav.link} key={nav.id}>
       {nav.title}
-    </Nav.Link>
+    </Link>
   ));
 
   return (
