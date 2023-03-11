@@ -1,5 +1,5 @@
 import React from "react";
-import './Card.scss';
+import styles from "./Card.module.scss";
 export interface ICardProps {
   header: JSX.Element;
   footer: JSX.Element;
@@ -9,10 +9,10 @@ export interface ICardProps {
 const Card = (props: ICardProps) => {
   const { header, footer, body } = props;
   return (
-    <div className="c-card">
-      {header && <div className="c-card-header">{header}</div>}
-      {body && <div className="c-card-body">{body}</div>}
-      {footer && <div className="c-card-footer">{footer}</div>}
+    <div className={styles.card}>
+      {header && <div className={styles.cardHeader}>{header}</div>}
+      {body && <div className={styles.cardBody}>{body}</div>}
+      {footer && <div className={styles.cardFooter}>{footer}</div>}
     </div>
   );
 };

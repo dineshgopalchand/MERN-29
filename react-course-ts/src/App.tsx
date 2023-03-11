@@ -12,8 +12,8 @@ function App() {
       <div className="top-container">
         <Header />
         <main>
-          {/* <Post/> */}
-          <ContextSample />
+          <Post/>
+          {/* <ContextSample /> */}
         </main>
         <Footer />
       </div>
