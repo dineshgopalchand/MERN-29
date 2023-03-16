@@ -1,18 +1,22 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 // import ReactPaginate from "react-paginate";
-import { IGitUser } from "../interface/getUset.interface";
+import { Spinner } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroller";
 import { Link } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { IGitUser } from "../interface/getUset.interface";
 
 const GitUser = () => {
-  const [since, setSince] = useState(0);
+  const [since, setSince] = useState<number>();
   const [userList, setUserList] = useState([] as IGitUser[]);
   const [isLoading, setIsLoading] = useState(false);
 
   const [startPage, setStartPage] = useState(0);
   useEffect(() => {
+    if (since === undefined) {
+      setSince(0);
+      return;
+    } 
     setIsLoading(false);
     axios({
       method: "GET",
@@ -24,7 +28,9 @@ const GitUser = () => {
     })
       .then((res) => res.data)
       .then((newUserList: IGitUser[]) => {
-        setUserList((prevUseList) => [...prevUseList, ...newUserList]);
+        setUserList((prevUseList) => {
+          return [...prevUseList, ...newUserList];
+        });
         setStartPage((prev) => prev + 1);
       })
       .catch(function (error) {
@@ -37,9 +43,7 @@ const GitUser = () => {
   }, [since]);
   const loadFunc = (event: any) => {
     setTimeout(() => {
-      console.log(event);
       const lastElementId = userList.length > 0 ? userList.slice(-1)[0].id : 0;
-      console.log(lastElementId);
       setSince(lastElementId);
     }, 2000);
   };
@@ -91,15 +95,6 @@ const GitUser = () => {
           })}
         </div>
       </InfiniteScroll>
-      {/* <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        className="pagination-list"
-      /> */}
     </>
   );
 };
