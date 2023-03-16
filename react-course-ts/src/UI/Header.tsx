@@ -56,7 +56,9 @@ function Header() {
                 <button className="btn btn-danger" onClick={logoutHandler}>
                   Logout
                 </button>
-                <FaUserCircle className={`${classes.userIcon} m-1`} />
+                <Link to="/user/account" className="user-profile-icon">
+                  <FaUserCircle className={`${classes.userIcon} m-1`} />
+                </Link>
               </>
             ) : (
               <button

@@ -1,7 +1,9 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import "./App.scss";
 import MainLayout from "./layouts/MainLayout";
+import UserLayout from "./layouts/UserLayout";
 import About from "./pages/About";
+import Account from "./pages/Account";
 import Contact from "./pages/Contact";
 import GitFollower from "./pages/GitFollower";
 import GitProfile from "./pages/GitProfile";
@@ -9,6 +11,7 @@ import GitUser from "./pages/GitUser";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Post from "./pages/Post";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -25,6 +28,11 @@ function App() {
             path="/git-user/:userId/followers"
             element={<GitFollower />}
           ></Route>
+          <Route path="user" element={<UserLayout />}>
+            <Route index element={<Navigate to="./profile" />}></Route>
+            <Route path="profile" element={<Profile />}></Route>
+            <Route path="account" element={<Account />}></Route>
+          </Route>
           <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>
