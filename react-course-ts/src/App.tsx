@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import "./App.scss";
 import AuthRequired from "./context/AuthRequired";
@@ -8,11 +9,12 @@ import Account from "./pages/Account";
 import Contact from "./pages/Contact";
 import GitFollower from "./pages/GitFollower";
 import GitProfile from "./pages/GitProfile";
-import GitUser from "./pages/GitUser";
+// import GitUser from "./pages/GitUser";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
+const GitUser = React.lazy(() => import("./pages/GitUser"));
 
 function App() {
   return (
@@ -23,7 +25,14 @@ function App() {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/About" element={<About />}></Route>
           <Route path="/posts" element={<Post />}></Route>
-          <Route path="/git-user" element={<GitUser />}></Route>
+          <Route
+            path="/git-user"
+            element={
+              <Suspense fallback="Loading...">
+                <GitUser />
+              </Suspense>
+            }
+          ></Route>
           <Route path="/git-user/:userId" element={<GitProfile />}></Route>
           <Route
             path="/git-user/:userId/followers"
