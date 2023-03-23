@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router";
 import "./App.scss";
+import AuthRequired from "./context/AuthRequired";
 import MainLayout from "./layouts/MainLayout";
 import UserLayout from "./layouts/UserLayout";
 import About from "./pages/About";
@@ -28,7 +29,14 @@ function App() {
             path="/git-user/:userId/followers"
             element={<GitFollower />}
           ></Route>
-          <Route path="user" element={<UserLayout />}>
+          <Route
+            path="user"
+            element={
+              <AuthRequired>
+                <UserLayout />
+              </AuthRequired>
+            }
+          >
             <Route index element={<Navigate to="./profile" />}></Route>
             <Route path="profile" element={<Profile />}></Route>
             <Route path="account" element={<Account />}></Route>

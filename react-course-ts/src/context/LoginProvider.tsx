@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useReducer } from "react";
+import { createContext, ReactNode, useEffect, useReducer } from "react";
 
 const loginInitVal: ILoginVal = {
   isLogin: false,
@@ -7,8 +7,10 @@ const loginInitVal: ILoginVal = {
 const loginReducer = (state: ILoginVal, action: ILoginAction): ILoginVal => {
   switch (action.type) {
     case "login":
+      localStorage.setItem("__u", JSON.stringify(action.payload));
       return { ...state, isLogin: true, details: action.payload };
     case "logout":
+      localStorage.removeItem("__u");
       return { ...state, isLogin: false };
     case "updatePendingStatus":
       return { ...state, loginPending: !state.loginPending };
@@ -23,6 +25,19 @@ export interface ILoginProviderProps {
 }
 const LoginProvider = ({ children }: ILoginProviderProps) => {
   const [loginDetail, loginDispatch] = useReducer(loginReducer, loginInitVal);
+
+  useEffect(() => {
+    const userLoginDetail = localStorage.getItem("__u");
+    if (userLoginDetail) {
+      const { email, name } = JSON.parse(userLoginDetail);
+      if (email && name) {
+        loginDispatch({
+          type: "login",
+          payload: { email, name },
+        });
+      }
+    }
+  }, []);
   const loginHandler = async () => {
     loginDispatch({
       type: "updatePendingStatus",
