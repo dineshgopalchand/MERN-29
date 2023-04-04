@@ -34,6 +34,16 @@ const navList: INavLink[] = [
     title: "Post",
     link: "/posts",
   },
+  {
+    id: 6,
+    title: "Counter",
+    link: "/counter",
+  },
+  {
+    id: 7,
+    title: "Products",
+    link: "/product",
+  },
 ];
 
 function Header() {
