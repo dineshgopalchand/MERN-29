@@ -1,11 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { IProduct } from "../interface/product.interface";
+import axios, { AxiosError } from "axios";
 
 const initialState = {
   isLoading: false,
   productList: [] as IProduct[],
-  error: {},
+  error: {} as AxiosError,
 };
+
+export interface PayloadAsyncAction {
+  error: AxiosError;
+  payload: IProduct[];
+  type: string;
+}
+
+export const fetchProductList = createAsyncThunk<any>(
+  "products/fetchProductList",
+  async (args, { dispatch, getState }) => {
+    console.log(args);
+    return axios("https://dummyjson.com/products").then(
+      (res) => res.data.products
+    );
+  }
+);
 
 const productSlice = createSlice({
   name: "products",
@@ -13,15 +30,31 @@ const productSlice = createSlice({
   reducers: {
     fetchingProduct: (state) => {
       state.isLoading = true;
-      state.error = {};
+      state.error = {} as AxiosError;
     },
-    updateProductList: (state, { payload }) => {
+    updateProductList: (state, action: PayloadAction<IProduct[]>) => {
       state.isLoading = false;
-      state.productList = payload;
+      state.productList = action.payload;
     },
     fetchingProductError: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+    },
+  },
+  extraReducers: {
+    [fetchProductList.pending as any]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchProductList.fulfilled as any]: (
+      state,
+      action: PayloadAsyncAction
+    ) => {
+      state.productList = action.payload;
+      state.isLoading = false;
+    },
+    [fetchProductList.rejected as any]: (state, action: PayloadAsyncAction) => {
+      state.isLoading = true;
+      state.error = action.error;
     },
   },
 });
@@ -29,4 +62,3 @@ export default productSlice.reducer;
 
 export const { fetchingProduct, updateProductList, fetchingProductError } =
   productSlice.actions;
-

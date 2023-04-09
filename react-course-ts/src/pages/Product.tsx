@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useEffectOnce } from "usehooks-ts";
-import { IProduct } from "../interface/product.interface";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchingProduct, fetchingProductError, updateProductList } from "../slices/productSlice";
+import { useAppDispatch } from "../hooks";
+import { fetchProductList } from "../slices/productSlice";
 import { RootState } from "../store";
 
 const Product = () => {
   const isLoading = useSelector((state: RootState) => state.product.isLoading);
   const products = useSelector((state: RootState) => state.product.productList);
-  const dispatch = useDispatch();
+  // const error = useSelector((state: RootState) => state.product.error);
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchingProduct());
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .catch(e=>{
-        console.log(e);
-        dispatch(fetchingProductError(e));
-      })
-      .then((json) => {
-        dispatch(updateProductList(json.products as IProduct[]));
-      })
+    dispatch(fetchProductList());
   }, []);
   return (
     <div className="container">
