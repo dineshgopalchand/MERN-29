@@ -20,23 +20,33 @@ const Product = () => {
 
   return (
     <>
-      <div className="row">
-        <div className="col-md-6 col-xs-12">
-          <ProductCarousel />
-        </div>
-        <div className="col-md-6 col-xs-12">
-          <h2 className="product-name">{product.title}</h2>
-          <p className="small">{product.brand}</p>
-          <br />
-          <p>{product.description}</p>
+      {isLoading || !product.title ? (
+        "loading..."
+      ) : (
+        <>
           <div className="row">
-            <div className="col">{product.price}</div>
-            <div className="col">
-              <button className="btn btn-primary">Add to cart</button>
+            <div className="col-md-6 col-xs-12">
+              <ProductCarousel
+                imageList={product.images.map((img) => {
+                  return { img };
+                })}
+              />
+            </div>
+            <div className="col-md-6 col-xs-12">
+              <h2 className="product-name">{product.title}</h2>
+              <p className="small">{product.brand}</p>
+              <br />
+              <p>{product.description}</p>
+              <div className="row">
+                <div className="col">{product.price}</div>
+                <div className="col">
+                  <button className="btn btn-primary">Add to cart</button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 };

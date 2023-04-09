@@ -1,8 +1,11 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+export interface ICarousalItemList {
+  img: string;
+}
 
-const ProductCarousel = () => {
+const ProductCarousel = ({ imageList }: { imageList: ICarousalItemList[] }) => {
   return (
     <>
       <Carousel
@@ -13,16 +16,11 @@ const ProductCarousel = () => {
         showThumbs={true}
         interval={5000}
       >
-        <div>
-          <h1>Hello</h1>
-          <img src="https://i.dummyjson.com/data/products/2/1.jpg" alt=""/>
-          {/* <p className="legend">Legend 1</p> */}
-        </div>
-        <div>
-          <h1>Hello</h1>
-          <img src="https://i.dummyjson.com/data/products/2/2.jpg" alt=""/>
-          {/* <p className="legend">Legend 2</p> */}
-        </div>
+        {imageList.map((imgItem,index) => (
+          <div key={index}>
+            <img src={imgItem.img} alt="" />
+          </div>
+        ))}
       </Carousel>
     </>
   );
