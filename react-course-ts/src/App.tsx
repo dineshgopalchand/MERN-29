@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import Post from "./pages/Post";
 import Products from "./pages/Products";
 import Profile from "./pages/Profile";
+import Product from "./pages/Product";
 const GitUser = React.lazy(() => import("./pages/GitUser"));
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/posts" element={<Post />}></Route>
           <Route path="/counter" element={<Counter />}></Route>
           <Route path="/products" element={<Products />}></Route>
+          <Route path="/product/:id/:productname" element={<Product />}></Route>
           <Route
             path="/git-user"
             element={

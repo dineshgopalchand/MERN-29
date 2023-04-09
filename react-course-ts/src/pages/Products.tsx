@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import { useAppDispatch } from "../hooks";
 import { fetchProductList } from "../slices/productsSlice";
 import { RootState } from "../store";
+import { slugify } from "../utils/utility";
 
 const Products = () => {
-  const isLoading = useSelector((state: RootState) => state.product.isLoading);
-  const products = useSelector((state: RootState) => state.product.productList);
-  // const error = useSelector((state: RootState) => state.product.error);
+  const isLoading = useSelector((state: RootState) => state.products.isLoading);
+  const products = useSelector((state: RootState) => state.products.productList);
+  // const error = useSelector((state: RootState) => state.products.error);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchProductList());
@@ -32,7 +33,9 @@ const Products = () => {
                   <div className="card-body">
                     <h5 className="card-title">{product.title}</h5>
                     <p className="card-text">{product.description}</p>
-                    <Link to={`/product/${product.id}/${product.title}`}>
+                    <Link
+                      to={`/product/${product.id}/${slugify(product.title)}`}
+                    >
                       View Product
                     </Link>
                   </div>
