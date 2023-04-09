@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../hooks";
-import { fetchProductList } from "../slices/productSlice";
+import { fetchProductList } from "../slices/productsSlice";
 import { RootState } from "../store";
 
 const Products = () => {

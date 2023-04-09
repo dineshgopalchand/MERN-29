@@ -23,7 +23,7 @@ export const fetchProductList = createAsyncThunk<any>(
   }
 );
 
-const productSlice = createSlice({
+const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
@@ -57,7 +57,7 @@ const productSlice = createSlice({
     },
   },
 });
-export default productSlice.reducer;
+export default productsSlice.reducer;
 
 export const { fetchingProduct, updateProductList, fetchingProductError } =
-  productSlice.actions;
+  productsSlice.actions;
