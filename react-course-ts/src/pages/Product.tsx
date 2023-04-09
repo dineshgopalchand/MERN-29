@@ -22,9 +22,7 @@ const Product = () => {
     <>
       <div className="row">
         <div className="col-md-6 col-xs-12">
-          <ProductCarousel imageList={product.images.map(img=>{
-            return {img}
-          })} />
+          <ProductCarousel />
         </div>
         <div className="col-md-6 col-xs-12">
           <h2 className="product-name">{product.title}</h2>
