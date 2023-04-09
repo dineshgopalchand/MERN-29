@@ -17,7 +17,6 @@ export interface PayloadAsyncAction {
 export const fetchProductList = createAsyncThunk<any>(
   "products/fetchProductList",
   async (args, { dispatch, getState }) => {
-    console.log(args);
     return axios("https://dummyjson.com/products").then(
       (res) => res.data.products
     );

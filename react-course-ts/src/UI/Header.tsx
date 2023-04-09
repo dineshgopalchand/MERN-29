@@ -42,7 +42,7 @@ const navList: INavLink[] = [
   {
     id: 7,
     title: "Products",
-    link: "/product",
+    link: "/products",
   },
 ];
 

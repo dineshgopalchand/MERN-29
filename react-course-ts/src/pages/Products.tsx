@@ -5,7 +5,7 @@ import { useAppDispatch } from "../hooks";
 import { fetchProductList } from "../slices/productSlice";
 import { RootState } from "../store";
 
-const Product = () => {
+const Products = () => {
   const isLoading = useSelector((state: RootState) => state.product.isLoading);
   const products = useSelector((state: RootState) => state.product.productList);
   // const error = useSelector((state: RootState) => state.product.error);
@@ -46,4 +46,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Products;

@@ -10,12 +10,12 @@ import Contact from "./pages/Contact";
 import GitFollower from "./pages/GitFollower";
 import GitProfile from "./pages/GitProfile";
 // import GitUser from "./pages/GitUser";
+import Counter from "./pages/Counter";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Post from "./pages/Post";
+import Products from "./pages/Products";
 import Profile from "./pages/Profile";
-import Counter from "./pages/Counter";
-import Product from "./pages/Product";
 const GitUser = React.lazy(() => import("./pages/GitUser"));
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
           <Route path="/About" element={<About />}></Route>
           <Route path="/posts" element={<Post />}></Route>
           <Route path="/counter" element={<Counter />}></Route>
-          <Route path="/product" element={<Product />}></Route>
+          <Route path="/products" element={<Products />}></Route>
           <Route
             path="/git-user"
             element={
